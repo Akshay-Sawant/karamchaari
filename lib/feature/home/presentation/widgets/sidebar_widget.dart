@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:karamchaari/feature/home/presentation/widgets/menu_item_widget.dart';
 
 class SidebarWidget extends StatelessWidget {
   const SidebarWidget({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,64 +45,61 @@ class SidebarWidget extends StatelessWidget {
 
 
 
-          const Column(
+          Column(
             children: [
-              Row(
-                children: [
-                  Icon(Icons.dashboard_outlined),
-                  SizedBox(width: 18),
-                  Text("Dashboard", style:
-                    TextStyle(color: Colors.black,fontSize: 12, fontWeight: FontWeight.bold),)
-                ],
+              MenuItemWidget(
+                  icon: Icons.dashboard_outlined,
+                  title: "Dashboard",
+                  isSelected: true,
+                  onTap: () {
+                    print("Dashboard");
+                  },
               ),
 
-               SizedBox(height: 30,),
+               const SizedBox(height: 30,),
 
-              Row(
-                children: [
-                  Icon(Icons.calendar_month_outlined),
-                  SizedBox(width: 18,),
-                  Text("Attendance", style:
-                  TextStyle(color: Colors.black,fontSize: 12, fontWeight: FontWeight.bold),),
-                ],
+              MenuItemWidget(
+                icon: Icons.calendar_month_outlined,
+                title: "Attendance",
+                isSelected: false,
+                onTap: () {
+                  print("Attendance");
+                },
               ),
 
-              SizedBox(height: 30,),
 
-              Row(
-                children: [
-                  Icon(Icons.edit_note_outlined),
-                  SizedBox(width: 18,),
-                  Text("Daily Work Update",style:
-                  TextStyle(color: Colors.black,fontSize: 12, fontWeight: FontWeight.bold),),
-                ],
+              const SizedBox(height: 30,),
+
+              MenuItemWidget(
+                icon: Icons.edit_note_outlined,
+                title: "Daily Work Update",
+                isSelected: false,
+                onTap: () {
+                  print("Daily Work Update");
+                },
               ),
 
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
 
 
-              Row(
-                children: [
-                  Icon(Icons.email_outlined),
-                  SizedBox(width: 18,),
-                  Text("Email Preview",style:
-                  TextStyle(color: Colors.black,fontSize: 12, fontWeight: FontWeight.bold),),
-                ],
+              MenuItemWidget(
+                icon: Icons.email_outlined,
+                title: "Email Preview",
+                isSelected: false,
+                onTap: () {
+                  print("Email preview");
+                },
               ),
 
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
 
-              Row(
-                children: [
-                  Icon(Icons.settings),
-                  SizedBox(width: 18,),
-                  Text("Settings",
-                    style:
-                  TextStyle(color: Colors.black,fontSize: 12, fontWeight: FontWeight.bold
-                  ),
-                  ),
-                ],
-
+              MenuItemWidget(
+                icon: Icons.settings,
+                title: "Settings",
+                isSelected:false,
+                onTap: () {
+                  print("Settings");
+                },
               ),
            ],
           ),

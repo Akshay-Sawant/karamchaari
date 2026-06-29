@@ -3,7 +3,6 @@ import 'package:karamchaari/feature/home/presentation/widgets/active_project_wid
 import 'package:karamchaari/feature/home/presentation/widgets/dashboard_summary_card.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/header_widget.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/keep_reports_widget.dart';
-import 'package:karamchaari/feature/home/presentation/widgets/quick_action_card.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/quick_actions_widget.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/recent_activity_widget.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/schedule_widget.dart';

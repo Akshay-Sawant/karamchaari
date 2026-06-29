@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:karamchaari/feature/home/presentation/widgets/search_bar_widget.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -38,24 +39,9 @@ class HeaderWidget extends StatelessWidget {
                     ),
           ),
         const SizedBox(width: 20,),
-        Expanded(
-          flex: 2,
-          child: Container(
-            height: 50,
-            padding: const EdgeInsets.symmetric(horizontal: 2),
-            decoration: BoxDecoration(
-              color: Colors.grey[500],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const TextField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: "Search Anything...",
-                prefixIcon: Icon(Icons.search),
-              ),
-            ),
-          ),
-        ),
+
+        const SearchBarWidget(),
+
         const SizedBox(width: 20,),
         IconButton(
           onPressed: () {},

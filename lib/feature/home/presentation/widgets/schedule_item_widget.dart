@@ -21,7 +21,7 @@ class ScheduleItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,7 +31,7 @@ class ScheduleItemWidget extends StatelessWidget {
             child: Text(
               time,
               style: const TextStyle(
-                fontSize: 13,
+                fontSize: 8,
                 color: Colors.grey,
               ),
             ),
@@ -61,7 +61,7 @@ class ScheduleItemWidget extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 15,
+                    fontSize: 10,
                   ),
                 ),
 
@@ -70,7 +70,7 @@ class ScheduleItemWidget extends StatelessWidget {
                 Text(
                   subtitle,
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 8,
                     color: Colors.grey,
                   ),
                 ),
@@ -84,7 +84,7 @@ class ScheduleItemWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 14,
-              vertical: 7,
+              vertical: 6,
             ),
             decoration: BoxDecoration(
               color: statusColor.withValues(alpha: 0.12),

@@ -22,18 +22,32 @@ class RecentActivityWidget extends StatelessWidget {
                 color: Colors.blue,
               ),
               const SizedBox(width: 8),
-              const Text(
-                "Recent Activity",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              const Expanded(
+                child: Text(
+                  "Recent Activity",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
+
+              const SizedBox(width: 8),
+
               SizedBox(
-                height: 34,
+                height: 32,
                 child: OutlinedButton(
                   onPressed: () {},
-                  child: const Text("View All"),
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    minimumSize: const Size(0, 32),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Text("View All",
+                  style: TextStyle(fontSize: 12),),
                 ),
               ),
             ],

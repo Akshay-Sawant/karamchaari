@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/active_project_widgets.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/dashboard_summary_card.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/header_widget.dart';
+import 'package:karamchaari/feature/home/presentation/widgets/keep_reports_widget.dart';
+import 'package:karamchaari/feature/home/presentation/widgets/quick_action_card.dart';
+import 'package:karamchaari/feature/home/presentation/widgets/quick_actions_widget.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/recent_activity_widget.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/schedule_widget.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/sidebar_widget.dart';
@@ -76,7 +79,7 @@ class HomePage extends StatelessWidget {
                             valueColor: Colors.black,
                           ),
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: 10),
                         Expanded(
                           child: DashboardSummaryCard(
                             icon: Icons.lock_clock,
@@ -96,7 +99,7 @@ class HomePage extends StatelessWidget {
                         Expanded(
 
                           child: SizedBox(
-                            height: 500,
+                            height: 360,
                             child: ScheduleWidget(),
                           ),
                         ),
@@ -106,7 +109,7 @@ class HomePage extends StatelessWidget {
                         Expanded(
 
                           child: SizedBox(
-                            height: 500,
+                            height: 360,
                             child: ActiveProjectsWidget(),
                           ),
                         ),
@@ -114,16 +117,34 @@ class HomePage extends StatelessWidget {
                         SizedBox(width: 20),
 
                         Expanded(
-
                           child: SizedBox(
-                            height: 500,
+                            height: 360,
                             child: RecentActivityWidget(),
                           ),
                         ),
+                      ],
 
+                    ),
+
+                    SizedBox(height: 20),
+
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+
+                            child: KeepReportsWidget(),
+                        ),
+
+                        SizedBox(width: 20),
+
+                        Expanded(
+
+                          child: QuickActionsWidget(),
+                        )
 
                       ],
-                    ),
+                    )
                   ],
                 ),
               ),

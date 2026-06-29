@@ -31,7 +31,7 @@ class ActiveProjectsWidget extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(width: 8,),
+              const SizedBox(width: 26,),
 
               OutlinedButton(
                 onPressed: () {},

@@ -21,7 +21,7 @@ class DashboardSummaryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 190,
+      height: 170,
 
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -50,7 +50,7 @@ class DashboardSummaryCard extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 13,
+              fontSize: 10,
               color: Colors.grey,
             ),
           ),
@@ -60,7 +60,7 @@ class DashboardSummaryCard extends StatelessWidget {
           Text(
             value,
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: valueColor),
+                fontSize: 18, fontWeight: FontWeight.bold, color: valueColor),
           ),
           const SizedBox(
             height: 8,
@@ -68,7 +68,7 @@ class DashboardSummaryCard extends StatelessWidget {
           Text(
             subtitle,
             style: const TextStyle(
-                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey),
+                fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
         ],
       ),

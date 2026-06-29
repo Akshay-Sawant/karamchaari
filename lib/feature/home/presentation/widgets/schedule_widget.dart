@@ -35,7 +35,7 @@ class ScheduleWidget extends StatelessWidget {
               const Text(
                 "Today's Schedule",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -48,12 +48,12 @@ class ScheduleWidget extends StatelessWidget {
                     foregroundColor: Colors.blue,
                     side: const BorderSide(color: Colors.blue),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   child: const Text(
                     "View Full Schedule",
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: 12),
                   ),
                 ),
               ),

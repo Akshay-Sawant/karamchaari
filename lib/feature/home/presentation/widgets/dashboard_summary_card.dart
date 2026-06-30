@@ -21,7 +21,7 @@ class DashboardSummaryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170,
+      height: 190,
 
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(

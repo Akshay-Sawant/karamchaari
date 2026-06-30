@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class EntryTimePicker extends StatelessWidget {
+class ExitTimePicker extends StatelessWidget {
   final TimeOfDay? time;
   final VoidCallback onTap;
 
-  const EntryTimePicker({
+  const ExitTimePicker({
     super.key,
     required this.time,
     required this.onTap,
@@ -25,8 +25,8 @@ class EntryTimePicker extends StatelessWidget {
         child: Row(
           children: [
             const Icon(
-              Icons.login,
-              color: Colors.green,
+              Icons.logout,
+              color: Colors.red,
             ),
 
             const SizedBox(width: 12),
@@ -34,7 +34,7 @@ class EntryTimePicker extends StatelessWidget {
             Expanded(
               child: Text(
                 time == null
-                    ? "Select Entry Time"
+                    ? "Select Exit Time"
                     : time!.format(context),
               ),
             ),

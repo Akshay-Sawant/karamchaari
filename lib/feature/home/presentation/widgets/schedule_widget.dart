@@ -31,31 +31,23 @@ class ScheduleWidget extends StatelessWidget {
                 color: Colors.blue,
                 size: 22,
               ),
+
               const SizedBox(width: 10),
-              const Text(
-                "Today's Schedule",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+
+              const Expanded(
+                child: Text(
+                  "Today's Schedule",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const Spacer(),
-              SizedBox(
-                height: 36,
-                child: OutlinedButton(
-                  onPressed: () {},
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    side: const BorderSide(color: Colors.blue),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    "View Full Schedule",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ),
+
+              TextButton(
+                onPressed: () {},
+                child: const Text("View All"),
               ),
             ],
           ),
@@ -65,7 +57,6 @@ class ScheduleWidget extends StatelessWidget {
           /// Schedule List
           Expanded(
             child: ListView(
-              physics: const NeverScrollableScrollPhysics(),
               children: [
                 const ScheduleItemWidget(
                   time: "09:12 AM",
@@ -76,7 +67,7 @@ class ScheduleWidget extends StatelessWidget {
                   dotColor: Colors.green,
                 ),
 
-                Divider(color: Colors.grey.shade200, height: 20),
+                Divider(color: Colors.grey.shade200),
 
                 const ScheduleItemWidget(
                   time: "10:00 AM",
@@ -87,7 +78,7 @@ class ScheduleWidget extends StatelessWidget {
                   dotColor: Colors.blue,
                 ),
 
-                Divider(color: Colors.grey.shade200, height: 20),
+                Divider(color: Colors.grey.shade200),
 
                 const ScheduleItemWidget(
                   time: "01:00 PM",
@@ -98,7 +89,7 @@ class ScheduleWidget extends StatelessWidget {
                   dotColor: Colors.deepPurple,
                 ),
 
-                Divider(color: Colors.grey.shade200, height: 20),
+                Divider(color: Colors.grey.shade200),
 
                 const ScheduleItemWidget(
                   time: "03:00 PM",
@@ -109,12 +100,12 @@ class ScheduleWidget extends StatelessWidget {
                   dotColor: Colors.orange,
                 ),
 
-                Divider(color: Colors.grey.shade200, height: 20),
+                Divider(color: Colors.grey.shade200),
 
                 const ScheduleItemWidget(
                   time: "06:00 PM",
                   title: "Checked Out",
-                  subtitle: "Yet to check out",
+                  subtitle: "Yet to Check Out",
                   status: "Pending",
                   statusColor: Colors.grey,
                   dotColor: Colors.grey,

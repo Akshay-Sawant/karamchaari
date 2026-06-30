@@ -25,7 +25,11 @@ class HomePage extends StatelessWidget {
         ),
         child: const Row(
           children: [
-            SidebarWidget(),
+            SidebarWidget(
+              selectedMenu: "Dashboard",
+            ),
+
+
             Expanded(
               child: SingleChildScrollView(
                 padding: EdgeInsets.all(20),

@@ -14,6 +14,7 @@ class RecentActivityWidget extends StatelessWidget {
         border: Border.all(color: Colors.grey.shade200),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -31,9 +32,6 @@ class RecentActivityWidget extends StatelessWidget {
                   ),
                 ),
               ),
-
-              const SizedBox(width: 8),
-
               SizedBox(
                 height: 32,
                 child: OutlinedButton(
@@ -42,12 +40,11 @@ class RecentActivityWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     minimumSize: const Size(0, 32),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
                   ),
-                  child: const Text("View All",
-                  style: TextStyle(fontSize: 12),),
+                  child: const Text(
+                    "View All",
+                    style: TextStyle(fontSize: 12),
+                  ),
                 ),
               ),
             ],
@@ -55,33 +52,37 @@ class RecentActivityWidget extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          const RecentActivityCard(
-            icon: Icons.check_circle,
-            iconColor: Colors.green,
-            title: "Attendance Marked",
-            time: "Today . 09:12 AM",
-          ),
-
-          const RecentActivityCard(
-            icon: Icons.description,
-            iconColor: Colors.blue,
-            title: "Daily Report Submitted",
-            time: "Today . 11:30 AM",
-          ),
-
-          const RecentActivityCard(
-            icon: Icons.folder_open,
-            iconColor: Colors.deepPurple,
-            title: "Project Updated",
-            time: "Yesterday . 5:45 AM",
-          ),
-
-
-          const RecentActivityCard(
-            icon: Icons.person,
-            iconColor: Colors.orange,
-            title: "Profile updated",
-            time: "2 Days Ago",
+          const Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  RecentActivityCard(
+                    icon: Icons.check_circle,
+                    iconColor: Colors.green,
+                    title: "Attendance Marked",
+                    time: "Today . 09:12 AM",
+                  ),
+                  RecentActivityCard(
+                    icon: Icons.description,
+                    iconColor: Colors.blue,
+                    title: "Daily Report Submitted",
+                    time: "Today . 11:30 AM",
+                  ),
+                  RecentActivityCard(
+                    icon: Icons.folder_open,
+                    iconColor: Colors.deepPurple,
+                    title: "Project Updated",
+                    time: "Yesterday . 5:45 AM",
+                  ),
+                  RecentActivityCard(
+                    icon: Icons.person,
+                    iconColor: Colors.orange,
+                    title: "Profile updated",
+                    time: "2 Days Ago",
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

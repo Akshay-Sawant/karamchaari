@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:karamchaari/feature/attendance/presentation/pages/attendance_page.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/menu_item_widget.dart';
 
 class SidebarWidget extends StatelessWidget {
-  const SidebarWidget({super.key});
+  final String selectedMenu;
+
+  const SidebarWidget({super.key,
+  required this.selectedMenu,
+  });
 
 
   @override
@@ -50,10 +55,10 @@ class SidebarWidget extends StatelessWidget {
               MenuItemWidget(
                   icon: Icons.dashboard_outlined,
                   title: "Dashboard",
-                  isSelected: true,
-                  onTap: () {
-                    print("Dashboard");
-                  },
+                  isSelected: selectedMenu=="Dashboard",
+                onTap: () {
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                },
               ),
 
                const SizedBox(height: 30,),
@@ -61,10 +66,17 @@ class SidebarWidget extends StatelessWidget {
               MenuItemWidget(
                 icon: Icons.calendar_month_outlined,
                 title: "Attendance",
-                isSelected: false,
+                isSelected: selectedMenu=="Attendance",
                 onTap: () {
-                  print("Attendance");
-                },
+                  if (selectedMenu != "Attendance") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const AttendancePage(),
+                      ),
+                    );
+                  }
+                }
               ),
 
 

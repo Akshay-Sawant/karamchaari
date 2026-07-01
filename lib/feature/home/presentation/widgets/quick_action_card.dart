@@ -22,7 +22,7 @@ class QuickActionCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 90,
-        padding: EdgeInsetsGeometry.symmetric(vertical: 18, horizontal: 10),
+        padding: const EdgeInsetsGeometry.symmetric(vertical: 18, horizontal: 10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),

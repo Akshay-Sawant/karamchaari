@@ -77,7 +77,7 @@ class Attachments extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
-        backgroundColor: iconColor.withOpacity(0.1),
+        backgroundColor: iconColor.withValues(alpha: 0.1),
         child: Icon(
           icon,
           color: iconColor,

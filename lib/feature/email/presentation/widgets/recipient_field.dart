@@ -104,7 +104,7 @@ class _RecipientTile extends StatelessWidget {
         /// Avatar
         CircleAvatar(
           radius: 22,
-          backgroundColor: avatarColor.withOpacity(0.15),
+          backgroundColor: avatarColor.withValues(alpha: 0.15),
           child: Text(
             initials,
             style: TextStyle(

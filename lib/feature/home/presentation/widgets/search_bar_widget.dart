@@ -5,9 +5,7 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
+    return  Container(
         height: 40,
         padding: const EdgeInsets.symmetric(horizontal: 2),
         decoration: BoxDecoration(
@@ -22,7 +20,6 @@ class SearchBarWidget extends StatelessWidget {
             prefixIcon: Icon(Icons.search),
           ),
         ),
-      ),
-    );
+      );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:karamchaari/feature/attendance/presentation/pages/attendance_page.dart';
+import 'package:karamchaari/feature/daily_update/presentation/pages/daily_update_page.dart';
+import 'package:karamchaari/feature/email/presentation/pages/email_preview_page.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/menu_item_widget.dart';
 
 class SidebarWidget extends StatelessWidget {
@@ -85,10 +87,17 @@ class SidebarWidget extends StatelessWidget {
               MenuItemWidget(
                 icon: Icons.edit_note_outlined,
                 title: "Daily Work Update",
-                isSelected: false,
-                onTap: () {
-                  print("Daily Work Update");
-                },
+                isSelected: selectedMenu=="Daily Work Update",
+                  onTap: () {
+                    if (selectedMenu != "Daily Work Update") {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const DailyUpdatePage(),
+                        ),
+                      );
+                    }
+                  }
               ),
 
               const SizedBox(height: 30,),
@@ -98,9 +107,16 @@ class SidebarWidget extends StatelessWidget {
                 icon: Icons.email_outlined,
                 title: "Email Preview",
                 isSelected: false,
-                onTap: () {
-                  print("Email preview");
-                },
+                  onTap: () {
+                    if (selectedMenu != "Email Preview") {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const EmailPreviewPage(),
+                        ),
+                      );
+                    }
+                  }
               ),
 
               const SizedBox(height: 30,),

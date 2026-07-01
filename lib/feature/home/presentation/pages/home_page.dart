@@ -35,7 +35,10 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    HeaderWidget(),
+                    HeaderWidget(
+                      title: "Good Morning, Akshay!",
+                      subtitle: "Here what's happening with your work today",
+                    ),
                     SizedBox(height: 20),
                     Row(
                       children: [

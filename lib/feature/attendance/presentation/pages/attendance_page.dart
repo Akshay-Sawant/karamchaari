@@ -34,7 +34,10 @@ class AttendancePage extends StatelessWidget {
                 child: Column(
                   children: [
 
-                    HeaderWidget(),
+                    HeaderWidget(
+                      title: "Attendance",
+                      subtitle: "Mark your daily attendance and working hours",
+                    ),
 
                     SizedBox(height: 20),
 

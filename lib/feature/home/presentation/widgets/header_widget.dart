@@ -5,10 +5,15 @@ class HeaderWidget extends StatelessWidget {
   final String title;
   final String subtitle;
 
+  /// Optional breadcrumb.
+  /// Example: ["Dashboard", "Settings"]
+  final List<String>? breadcrumbs;
+
   const HeaderWidget({
     super.key,
     required this.title,
     required this.subtitle,
+    this.breadcrumbs,
   });
 
   @override
@@ -19,7 +24,7 @@ class HeaderWidget extends StatelessWidget {
     final weekday = _getWeekDay(now.weekday);
 
     return Container(
-      width: 1250,
+      width: double.infinity,
       height: 100,
       padding: const EdgeInsets.symmetric(horizontal: 24),
       decoration: const BoxDecoration(
@@ -45,13 +50,19 @@ class HeaderWidget extends StatelessWidget {
 
                 const SizedBox(height: 6),
 
-                Text(
-                  subtitle,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
+                /// Breadcrumb OR Subtitle
+                if (breadcrumbs != null && breadcrumbs!.isNotEmpty)
+                  Row(
+                    children: _buildBreadcrumb(),
+                  )
+                else
+                  Text(
+                    subtitle,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
               ],
             ),
           ),
@@ -121,6 +132,42 @@ class HeaderWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<Widget> _buildBreadcrumb() {
+    List<Widget> items = [];
+
+    for (int i = 0; i < breadcrumbs!.length; i++) {
+      items.add(
+        Text(
+          breadcrumbs![i],
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: i == breadcrumbs!.length - 1
+                ? FontWeight.w600
+                : FontWeight.w500,
+            color: i == breadcrumbs!.length - 1
+                ? Colors.blue
+                : Colors.grey,
+          ),
+        ),
+      );
+
+      if (i != breadcrumbs!.length - 1) {
+        items.add(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 6),
+            child: Icon(
+              Icons.chevron_right,
+              size: 16,
+              color: Colors.grey,
+            ),
+          ),
+        );
+      }
+    }
+
+    return items;
   }
 
   String _getWeekDay(int day) {

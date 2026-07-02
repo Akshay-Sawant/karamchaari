@@ -3,6 +3,7 @@ import 'package:karamchaari/feature/attendance/presentation/pages/attendance_pag
 import 'package:karamchaari/feature/daily_update/presentation/pages/daily_update_page.dart';
 import 'package:karamchaari/feature/email/presentation/pages/email_preview_page.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/menu_item_widget.dart';
+import 'package:karamchaari/feature/setting/presentation/pages/setting_page.dart';
 
 class SidebarWidget extends StatelessWidget {
   final String selectedMenu;
@@ -106,7 +107,7 @@ class SidebarWidget extends StatelessWidget {
               MenuItemWidget(
                 icon: Icons.email_outlined,
                 title: "Email Preview",
-                isSelected: false,
+                isSelected: selectedMenu=="Email Preview",
                   onTap: () {
                     if (selectedMenu != "Email Preview") {
                       Navigator.push(
@@ -124,10 +125,17 @@ class SidebarWidget extends StatelessWidget {
               MenuItemWidget(
                 icon: Icons.settings,
                 title: "Settings",
-                isSelected:false,
-                onTap: () {
-                  print("Settings");
-                },
+                isSelected: selectedMenu=="Settings",
+                  onTap: () {
+                    if (selectedMenu != "Settings") {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const SettingPage(),
+                        ),
+                      );
+                    }
+                  }
               ),
            ],
           ),

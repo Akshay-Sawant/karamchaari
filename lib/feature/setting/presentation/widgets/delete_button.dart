@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+class DeleteButton extends StatelessWidget {
+  final VoidCallback? onPressed;
+
+  const DeleteButton({
+    super.key,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed ?? () {},
+      icon: const Icon(
+        Icons.delete_outline,
+        color: Colors.red,
+      ),
+      tooltip: "Delete",
+    );
+  }
+}

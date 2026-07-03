@@ -62,8 +62,7 @@ class ScheduleWidget extends StatelessWidget {
           const SizedBox(height: 20),
 
           /// Schedule List
-          Expanded(
-            child: ListView(
+           ListView(
               children: [
                 const ScheduleItemWidget(
                   time: "09:12 AM",
@@ -119,7 +118,7 @@ class ScheduleWidget extends StatelessWidget {
                 ),
               ],
             ),
-          ),
+
         ],
       ),
     );

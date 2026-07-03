@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:karamchaari/feature/home/presentation/widgets/header_widget.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/sidebar_widget.dart';
 
@@ -22,71 +23,69 @@ class AttendancePage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: const Row(
-          children: [
-            SidebarWidget(
-              selectedMenu: "Attendance",
-            ),
+        child: const SafeArea(
+          child: Row(
+            children: [
+              SidebarWidget(
+                selectedMenu: "Attendance",
+              ),
 
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-
-                    HeaderWidget(
-                      title: "Attendance",
-                      subtitle: "Mark your daily attendance and working hours",
-                    ),
-
-                    SizedBox(height: 10),
-
-                    AttendanceCard(),
-
-                    SizedBox(height: 10),
-
-
-                    Expanded(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-
-
-                          Expanded(
-                            flex: 7,
-                            child: AttendanceForm(),
-                          ),
-
-                          SizedBox(width: 20),
-
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              children: [
-
-
-                                Expanded(
-                                  flex: 6,
-                                  child: AttendanceHistoryCard(),
-                                ),
-
-                                SizedBox(height: 20),
-
-                                Expanded(
-                                  flex: 4,
-                                  child: MonthlySummaryCard(),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      HeaderWidget(
+                        title: "Attendance",
+                        subtitle:
+                        "Mark your daily attendance and working hours",
                       ),
-                    ),
-                  ],
+
+                      SizedBox(height: 16),
+
+                      AttendanceCard(),
+
+                      SizedBox(height: 16),
+
+                      Expanded(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 7,
+                              child: AttendanceForm(),
+                            ),
+
+                            SizedBox(width: 20),
+
+                            Expanded(
+                              flex: 3,
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 6,
+                                    child: AttendanceHistoryCard(),
+                                  ),
+
+                                  SizedBox(height: 20),
+
+                                  Expanded(
+                                    flex: 4,
+                                    child: MonthlySummaryCard(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

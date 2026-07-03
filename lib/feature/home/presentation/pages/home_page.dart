@@ -102,12 +102,9 @@ class HomePage extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-
-                          child: SizedBox(
-                            height: 360,
-                            child: ScheduleWidget(),
-                          ),
+                        SizedBox(
+                          height: 360,
+                          child: ScheduleWidget(),
                         ),
 
                         SizedBox(width: 20),

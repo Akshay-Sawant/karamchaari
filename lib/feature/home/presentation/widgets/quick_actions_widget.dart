@@ -5,6 +5,8 @@ import 'package:karamchaari/feature/daily_update/presentation/pages/daily_update
 import 'package:karamchaari/feature/email/presentation/pages/email_preview_page.dart';
 import 'package:karamchaari/feature/setting/presentation/pages/setting_page.dart';
 
+import 'quick_action_card.dart';
+
 class QuickActionsWidget extends StatelessWidget {
   const QuickActionsWidget({super.key});
 
@@ -23,7 +25,7 @@ class QuickActionsWidget extends StatelessWidget {
             child: Text(
               "Quick Actions",
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -31,123 +33,87 @@ class QuickActionsWidget extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          Row(
+          Wrap(
+            spacing: 12,
+            runSpacing: 12,
             children: [
-              Expanded(
-                child: _actionCard(
-                  context,
-                  icon: Icons.fact_check,
-                  title: "Mark\nAttendance",
-                  color: Colors.green,
-                  page: const AttendancePage(),
-                ),
+              QuickActionCard(
+                icon: Icons.fact_check,
+                title: "Mark\nAttendance",
+                iconColor: Colors.green,
+                backgroundColor: Colors.green.withOpacity(0.15),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const AttendancePage(),
+                    ),
+                  );
+                },
               ),
 
-              const SizedBox(width: 12),
-
-              Expanded(
-                child: _actionCard(
-                  context,
-                  icon: Icons.edit_note,
-                  title: "Add Work\nUpdate",
-                  color: Colors.deepPurple,
-                  page: const DailyUpdatePage(),
-                ),
+              QuickActionCard(
+                icon: Icons.edit_note,
+                title: "Work\nUpdate",
+                iconColor: Colors.deepPurple,
+                backgroundColor: Colors.deepPurple.withOpacity(0.15),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const DailyUpdatePage(),
+                    ),
+                  );
+                },
               ),
 
-              const SizedBox(width: 12),
-
-              Expanded(
-                child: _actionCard(
-                  context,
-                  icon: Icons.email_outlined,
-                  title: "Preview\nEmail",
-                  color: Colors.blue,
-                  page: const EmailPreviewPage(),
-                ),
+              QuickActionCard(
+                icon: Icons.email_outlined,
+                title: "Preview\nEmail",
+                iconColor: Colors.blue,
+                backgroundColor: Colors.blue.withOpacity(0.15),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const EmailPreviewPage(),
+                    ),
+                  );
+                },
               ),
 
-              const SizedBox(width: 12),
-
-              Expanded(
-                child: _actionCard(
-                  context,
-                  icon: Icons.send,
-                  title: "Send\nReport",
-                  color: Colors.orange,
-                  page: const EmailPreviewPage(),
-                ),
+              QuickActionCard(
+                icon: Icons.send,
+                title: "Send\nReport",
+                iconColor: Colors.orange,
+                backgroundColor: Colors.orange.withOpacity(0.15),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const EmailPreviewPage(), // change later if needed
+                    ),
+                  );
+                },
               ),
 
-              const SizedBox(width: 12),
-
-              Expanded(
-                child: _actionCard(
-                  context,
-                  icon: Icons.settings,
-                  title: "Go To\nSetting",
-                  color: Colors.grey,
-                  page: const SettingPage(),
-                ),
+              QuickActionCard(
+                icon: Icons.settings,
+                title: "Settings",
+                iconColor: Colors.grey,
+                backgroundColor: Colors.grey.withOpacity(0.15),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const SettingPage(),
+                    ),
+                  );
+                },
               ),
             ],
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _actionCard(
-      BuildContext context, {
-        required IconData icon,
-        required String title,
-        required Color color,
-        required Widget page,
-      }) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(18),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => page,
           ),
-        );
-      },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
-        height: 140,
-        padding: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
-          border: Border.all(color: Colors.grey.shade300),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 18,
-              backgroundColor: color.withValues(alpha: .12),
-              child: Icon(
-                icon,
-                color: color,
-                size: 20,
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 12,
-              ),
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }

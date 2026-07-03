@@ -9,63 +9,78 @@ class AttendanceSuccessDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
       ),
-      content: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CircleAvatar(
-              radius: 35,
-              backgroundColor: Colors.green.shade100,
-              child: const Icon(
-                Icons.check_circle,
-                color: Colors.green,
-                size: 50,
-              ),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 24,
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          /// ICON
+          Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+              color: Colors.green.withOpacity(0.12),
+              shape: BoxShape.circle,
             ),
-
-            const SizedBox(height: 20),
-
-            const Text(
-              "Attendance Saved!",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
+            child: const Icon(
+              Icons.check_circle,
+              color: Colors.green,
+              size: 50,
             ),
+          ),
 
-            const SizedBox(height: 10),
+          const SizedBox(height: 18),
 
-            const Text(
-              "Your attendance has been marked successfully.",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 15,
-              ),
+          /// TITLE
+          const Text(
+            "Attendance Saved!",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
+          ),
 
-            const SizedBox(height: 25),
+          const SizedBox(height: 10),
 
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity, 48),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+          /// DESCRIPTION
+          const Text(
+            "Your attendance has been marked successfully.",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 14,
+              height: 1.4,
+            ),
+          ),
+
+          const SizedBox(height: 22),
+
+          /// BUTTON
+          SizedBox(
+            width: double.infinity,
+            height: 46,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Text("OK"),
+              ),
+              child: const Text(
+                "OK",
+                style: TextStyle(fontWeight: FontWeight.w600),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

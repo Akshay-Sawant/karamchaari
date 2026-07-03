@@ -41,7 +41,7 @@ class QuickActionsWidget extends StatelessWidget {
                 icon: Icons.fact_check,
                 title: "Mark\nAttendance",
                 iconColor: Colors.green,
-                backgroundColor: Colors.green.withOpacity(0.15),
+                backgroundColor: Colors.green.withValues(alpha: 0.15),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -56,7 +56,7 @@ class QuickActionsWidget extends StatelessWidget {
                 icon: Icons.edit_note,
                 title: "Work\nUpdate",
                 iconColor: Colors.deepPurple,
-                backgroundColor: Colors.deepPurple.withOpacity(0.15),
+                backgroundColor: Colors.deepPurple.withValues(alpha: 0.15),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -71,7 +71,7 @@ class QuickActionsWidget extends StatelessWidget {
                 icon: Icons.email_outlined,
                 title: "Preview\nEmail",
                 iconColor: Colors.blue,
-                backgroundColor: Colors.blue.withOpacity(0.15),
+                backgroundColor: Colors.blue.withValues(alpha: 0.15),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -86,7 +86,7 @@ class QuickActionsWidget extends StatelessWidget {
                 icon: Icons.send,
                 title: "Send\nReport",
                 iconColor: Colors.orange,
-                backgroundColor: Colors.orange.withOpacity(0.15),
+                backgroundColor: Colors.orange.withValues(alpha: 0.15),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -101,7 +101,7 @@ class QuickActionsWidget extends StatelessWidget {
                 icon: Icons.settings,
                 title: "Settings",
                 iconColor: Colors.grey,
-                backgroundColor: Colors.grey.withOpacity(0.15),
+                backgroundColor: Colors.grey.withValues(alpha: 0.15),
                 onTap: () {
                   Navigator.push(
                     context,

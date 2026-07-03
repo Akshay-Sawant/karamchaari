@@ -19,12 +19,12 @@ class EmployeeMobileSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           /// Header
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     "Employee Information",
                     style: TextStyle(
@@ -41,7 +41,7 @@ class EmployeeMobileSection extends StatelessWidget {
                   ),
                 ],
               ),
-              const AddButton(
+              AddButton(
                 text: "Add Employee",
               ),
             ],
@@ -70,7 +70,7 @@ class EmployeeMobileSection extends StatelessWidget {
               SizedBox(
                 width: 170,
                 child: DropdownButtonFormField<String>(
-                  value: "All Status",
+                  initialValue: "All Status",
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),

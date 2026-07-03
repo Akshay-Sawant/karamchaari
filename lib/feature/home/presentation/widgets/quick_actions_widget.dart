@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:karamchaari/feature/home/presentation/widgets/quick_action_card.dart';
+
+import 'package:karamchaari/feature/attendance/presentation/pages/attendance_page.dart';
+import 'package:karamchaari/feature/daily_update/presentation/pages/daily_update_page.dart';
+import 'package:karamchaari/feature/email/presentation/pages/email_preview_page.dart';
+import 'package:karamchaari/feature/setting/presentation/pages/setting_page.dart';
 
 class QuickActionsWidget extends StatelessWidget {
   const QuickActionsWidget({super.key});
@@ -7,79 +11,144 @@ class QuickActionsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 210,
-      padding: const EdgeInsetsGeometry.symmetric(horizontal: 15, vertical: 8),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.grey.shade200),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.08),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
       ),
-
-      child: const Column(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Quick Actions",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          const Center(
+            child: Text(
+              "Quick Actions",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
 
-          SizedBox(height: 20,),
+          const SizedBox(height: 20),
 
-          Expanded(child: Wrap(
-            spacing: 12,
-            runSpacing: 12,
+          Row(
             children: [
-              QuickActionCard(
+              Expanded(
+                child: _actionCard(
+                  context,
                   icon: Icons.fact_check,
-                  title: "Mark/Attendance",
-                  iconColor: Colors.green,
-                  backgroundColor: Color(0xFFF2ECFF),
+                  title: "Mark\nAttendance",
+                  color: Colors.green,
+                  page: const AttendancePage(),
+                ),
               ),
 
-              QuickActionCard(
-                icon: Icons.edit_note,
-                title: "Add Work update",
-                iconColor: Colors.deepPurple,
-                backgroundColor: Color(0xFFF2ECFF),
+              const SizedBox(width: 12),
+
+              Expanded(
+                child: _actionCard(
+                  context,
+                  icon: Icons.edit_note,
+                  title: "Add Work\nUpdate",
+                  color: Colors.deepPurple,
+                  page: const DailyUpdatePage(),
+                ),
               ),
 
+              const SizedBox(width: 12),
 
-              QuickActionCard(
-                icon: Icons.email_outlined,
-                title: "Preview\nEmail",
-                iconColor: Colors.blue,
-                backgroundColor: Color(0xFFE8F3FF),
+              Expanded(
+                child: _actionCard(
+                  context,
+                  icon: Icons.email_outlined,
+                  title: "Preview\nEmail",
+                  color: Colors.blue,
+                  page: const EmailPreviewPage(),
+                ),
               ),
 
+              const SizedBox(width: 12),
 
-              QuickActionCard(
-                icon: Icons.send,
-                title: "Send\nReport",
-                iconColor: Colors.orange,
-                backgroundColor: Color(0xFFFFF4E6),
+              Expanded(
+                child: _actionCard(
+                  context,
+                  icon: Icons.send,
+                  title: "Send\nReport",
+                  color: Colors.orange,
+                  page: const EmailPreviewPage(),
+                ),
               ),
 
+              const SizedBox(width: 12),
 
-              QuickActionCard(
-                icon: Icons.settings,
-                title: "Go to\n Setting",
-                iconColor: Colors.grey,
-                backgroundColor: Color(0xFFF3F4F6),
+              Expanded(
+                child: _actionCard(
+                  context,
+                  icon: Icons.settings,
+                  title: "Go To\nSetting",
+                  color: Colors.grey,
+                  page: const SettingPage(),
+                ),
               ),
-
-
-
-
             ],
-          ))
+          )
         ],
       ),
+    );
+  }
 
+  Widget _actionCard(
+      BuildContext context, {
+        required IconData icon,
+        required String title,
+        required Color color,
+        required Widget page,
+      }) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(18),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => page,
+          ),
+        );
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        height: 140,
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: Colors.grey.shade300),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 18,
+              backgroundColor: color.withValues(alpha: .12),
+              child: Icon(
+                icon,
+                color: color,
+                size: 20,
+              ),
+            ),
+
+            const SizedBox(height: 8),
+
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

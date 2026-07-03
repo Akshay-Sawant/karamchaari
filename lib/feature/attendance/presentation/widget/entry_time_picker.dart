@@ -3,46 +3,88 @@ import 'package:flutter/material.dart';
 class EntryTimePicker extends StatelessWidget {
   final TimeOfDay? time;
   final VoidCallback onTap;
+  final VoidCallback? onClear;
 
   const EntryTimePicker({
     super.key,
     required this.time,
     required this.onTap,
+    this.onClear,
   });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: Container(
-        height: 55,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey.shade300),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Entry Time",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+
+        const SizedBox(height: 8),
+
+        InkWell(
+          onTap: onTap,
           borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: [
-            const Icon(
-              Icons.login,
-              color: Colors.green,
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 10,
             ),
-
-            const SizedBox(width: 12),
-
-            Expanded(
-              child: Text(
-                time == null
-                    ? "Select Entry Time"
-                    : time!.format(context),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey.shade300,
               ),
+              borderRadius: BorderRadius.circular(12),
             ),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.login,
+                  color: Colors.green,
+                ),
 
-            const Icon(Icons.access_time),
-          ],
+                const SizedBox(width: 12),
+
+                Expanded(
+                  child: Text(
+                    time == null
+                        ? "Select Entry Time"
+                        : time!.format(context),
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: time == null
+                          ? Colors.grey
+                          : Colors.black,
+                    ),
+                  ),
+                ),
+
+                /// Clear Button
+                if (time != null)
+                  IconButton(
+                    icon: const Icon(
+                      Icons.close,
+                      color: Colors.red,
+                      size: 20,
+                    ),
+                    onPressed: onClear,
+                  ),
+
+                const Icon(
+                  Icons.access_time,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }

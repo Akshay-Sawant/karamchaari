@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class ExitTimePicker extends StatelessWidget {
   final TimeOfDay? time;
   final VoidCallback onTap;
+  final VoidCallback? onClear;
 
   const ExitTimePicker({
     super.key,
     required this.time,
     required this.onTap,
+    this.onClear,
   });
 
   @override
@@ -32,7 +34,7 @@ class ExitTimePicker extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
-              vertical: 16,
+              vertical: 10,
             ),
             decoration: BoxDecoration(
               border: Border.all(
@@ -43,8 +45,8 @@ class ExitTimePicker extends StatelessWidget {
             child: Row(
               children: [
                 const Icon(
-                  Icons.access_time,
-                  color: Colors.blue,
+                  Icons.logout,
+                  color: Colors.red,
                 ),
 
                 const SizedBox(width: 12),
@@ -63,8 +65,19 @@ class ExitTimePicker extends StatelessWidget {
                   ),
                 ),
 
+                /// Clear Button
+                if (time != null)
+                  IconButton(
+                    icon: const Icon(
+                      Icons.close,
+                      color: Colors.red,
+                      size: 20,
+                    ),
+                    onPressed: onClear,
+                  ),
+
                 const Icon(
-                  Icons.arrow_drop_down,
+                  Icons.access_time,
                   color: Colors.grey,
                 ),
               ],

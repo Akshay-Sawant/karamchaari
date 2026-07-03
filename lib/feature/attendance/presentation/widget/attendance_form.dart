@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:karamchaari/feature/attendance/presentation/widget/attendance_success_dialog.dart';
 import 'package:karamchaari/feature/attendance/presentation/widget/data_picker_widget.dart';
 import 'package:karamchaari/feature/attendance/presentation/widget/entry_time_picker.dart';
 import 'package:karamchaari/feature/attendance/presentation/widget/exit_time_picker.dart';
@@ -12,15 +13,15 @@ class AttendanceForm extends StatefulWidget {
 }
 
 class _AttendanceFormState extends State<AttendanceForm> {
-  DateTime selectedDate = DateTime.now();
-
+  DateTime? selectedDate;
   TimeOfDay? entryTime;
   TimeOfDay? exitTime;
 
+  /// Select Date
   Future<void> _selectDate() async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: selectedDate,
+      initialDate: selectedDate ?? DateTime.now(),
       firstDate: DateTime(2024),
       lastDate: DateTime(2035),
     );
@@ -32,6 +33,7 @@ class _AttendanceFormState extends State<AttendanceForm> {
     }
   }
 
+  /// Select Entry Time
   Future<void> _selectEntryTime() async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
@@ -45,6 +47,7 @@ class _AttendanceFormState extends State<AttendanceForm> {
     }
   }
 
+  /// Select Exit Time
   Future<void> _selectExitTime() async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
@@ -58,27 +61,84 @@ class _AttendanceFormState extends State<AttendanceForm> {
     }
   }
 
+  /// Clear Form
+  void _clearForm() {
+    setState(() {
+      selectedDate = null;
+      entryTime = null;
+      exitTime = null;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Attendance form cleared."),
+        backgroundColor: Colors.orange,
+      ),
+    );
+  }
+
+  /// Save Attendance
+  void _saveAttendance() {
+    if (selectedDate == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please select attendance date."),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    if (entryTime == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please select Entry Time."),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    if (exitTime == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please select Exit Time."),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const AttendanceSuccessDialog(),
+    );
+
+    setState(() {
+      selectedDate = null;
+      entryTime = null;
+      exitTime = null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: Colors.grey.shade300,
-        ),
+        border: Border.all(color: Colors.grey.shade300),
       ),
-      child: SingleChildScrollView(
-        padding: const EdgeInsetsGeometry.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               "Mark Attendance",
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -88,49 +148,72 @@ class _AttendanceFormState extends State<AttendanceForm> {
             Text(
               "Fill the attendance details below.",
               style: TextStyle(
-                fontSize: 14,
                 color: Colors.grey.shade600,
+                fontSize: 14,
               ),
             ),
 
-            const SizedBox(height: 30),
+            const SizedBox(height: 25),
+
 
             DataPickerWidget(
               selectedDate: selectedDate,
               onTap: _selectDate,
+              onClear: () {
+                setState(() {
+                  selectedDate = null;
+                });
+              },
             ),
+            const SizedBox(height: 18),
 
-            const SizedBox(height: 20),
 
             EntryTimePicker(
               time: entryTime,
               onTap: _selectEntryTime,
+              onClear: () {
+                setState(() {
+                  entryTime = null;
+                });
+              },
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 18),
 
             ExitTimePicker(
               time: exitTime,
               onTap: _selectExitTime,
+              onClear: () {
+                setState(() {
+                  exitTime = null;
+                });
+              },
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(height: 32),
 
-            Align(
-              alignment: Alignment.centerRight,
-              child: SaveButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Attendance Saved Successfully"),
-                    ),
-                  );
-                },
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                OutlinedButton.icon(
+                  onPressed: _clearForm,
+                  icon: const Icon(Icons.delete_outline),
+                  label: const Text("Clear"),
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(130, 48),
+                  ),
+                ),
+
+                const SizedBox(width: 16),
+
+                SaveButton(
+                  onPressed: _saveAttendance,
+                ),
+              ],
             ),
           ],
         ),
-      ),
+
     );
   }
 }

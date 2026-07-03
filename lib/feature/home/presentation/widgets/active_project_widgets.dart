@@ -34,7 +34,7 @@ class ActiveProjectsWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.grey.shade200),
       ),
-      child: SingleChildScrollView(
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -99,7 +99,7 @@ class ActiveProjectsWidget extends StatelessWidget {
             ),
           ],
         ),
-      ),
+
     );
   }
 }

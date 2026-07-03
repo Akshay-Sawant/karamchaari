@@ -19,7 +19,7 @@ class DailyUpdatePage extends StatelessWidget {
           children: [
             /// Sidebar
             SidebarWidget(
-              selectedMenu: "Daily Update",
+              selectedMenu: "Daily Work Update",
             ),
 
             /// Main Content

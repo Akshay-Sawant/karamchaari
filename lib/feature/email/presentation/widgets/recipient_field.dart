@@ -14,11 +14,11 @@ class RecipientField extends StatelessWidget {
           color: Colors.grey.shade300,
         ),
       ),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           /// Header
-          const Row(
+          Row(
             children: [
               Icon(
                 Icons.groups_outlined,
@@ -36,10 +36,10 @@ class RecipientField extends StatelessWidget {
             ],
           ),
 
-          const SizedBox(height: 24),
+          SizedBox(height: 24),
 
           /// Reporting Manager
-          const Text(
+          Text(
             "Reporting Manager",
             style: TextStyle(
               fontWeight: FontWeight.w600,
@@ -47,22 +47,22 @@ class RecipientField extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
-          const _RecipientTile(
+          _RecipientTile(
             initials: "RM",
             avatarColor: Color(0xff4F8EF7),
             name: "Rohit Mehta",
             email: "rohit.mehta@aspire.com",
           ),
 
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(vertical: 18),
             child: Divider(height: 1),
           ),
 
           /// HR Recipient
-          const Text(
+          Text(
             "HR Recipient",
             style: TextStyle(
               fontWeight: FontWeight.w600,
@@ -70,9 +70,9 @@ class RecipientField extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
-          const _RecipientTile(
+          _RecipientTile(
             initials: "PS",
             avatarColor: Color(0xffB26DFF),
             name: "Priya Sharma",

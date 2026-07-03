@@ -39,11 +39,11 @@ class AttendancePage extends StatelessWidget {
                       subtitle: "Mark your daily attendance and working hours",
                     ),
 
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
 
                     AttendanceCard(),
 
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
 
 
                     Expanded(

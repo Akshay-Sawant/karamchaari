@@ -29,7 +29,7 @@ class ReportingManagerTable extends StatelessWidget {
           dataRowMaxHeight: 60,
           columnSpacing: 35,
           headingRowColor:
-          MaterialStateProperty.all(const Color(0xffF5F7FB)),
+          WidgetStateProperty.all(const Color(0xffF5F7FB)),
           border: TableBorder(
             horizontalInside:
             BorderSide(color: Colors.grey.shade200),

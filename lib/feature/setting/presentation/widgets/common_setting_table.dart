@@ -92,7 +92,7 @@ class CommonSettingTable extends StatelessWidget {
               SizedBox(
                 width: 170,
                 child: DropdownButtonFormField<String>(
-                  value: "All Status",
+                  initialValue: "All Status",
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -157,9 +157,9 @@ class CommonSettingTable extends StatelessWidget {
                             (cell) => DataCell(Text(cell)),
                       ),
 
-                      DataCell(
+                      const DataCell(
                         Row(
-                          children: const [
+                          children: [
                             EditButton(),
                             SizedBox(width: 8),
                             DeleteButton(),

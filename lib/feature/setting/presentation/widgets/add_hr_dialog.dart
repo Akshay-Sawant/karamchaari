@@ -118,7 +118,7 @@ class _AddHrDialogState extends State<AddHrDialog> {
               const SizedBox(height: 15),
 
               DropdownButtonFormField<String>(
-                value: status,
+                initialValue: status,
                 decoration: const InputDecoration(
                   labelText: "Status",
                   border: OutlineInputBorder(),

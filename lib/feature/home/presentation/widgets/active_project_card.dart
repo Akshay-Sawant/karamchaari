@@ -17,7 +17,7 @@ class ActiveProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsGeometry.only(bottom: 28),
+      padding: const EdgeInsetsGeometry.only(bottom: 25),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,7 +46,7 @@ class ActiveProjectCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 12,
                   ),
                 ),
                 const SizedBox(
@@ -57,7 +57,7 @@ class ActiveProjectCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 8,
                     color: Colors.grey.shade600,
                   ),
                 ),

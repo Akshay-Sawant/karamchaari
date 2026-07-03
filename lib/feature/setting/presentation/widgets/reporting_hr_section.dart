@@ -19,12 +19,12 @@ class ReportingHrSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           /// Header
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     "Reporting HR",
                     style: TextStyle(
@@ -41,7 +41,7 @@ class ReportingHrSection extends StatelessWidget {
                   ),
                 ],
               ),
-              const AddButton(
+              AddButton(
                 text: "Add HR",
               ),
             ],
@@ -57,7 +57,7 @@ class ReportingHrSection extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: "Search HR...",
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -70,7 +70,7 @@ class ReportingHrSection extends StatelessWidget {
               SizedBox(
                 width: 170,
                 child: DropdownButtonFormField<String>(
-                  value: "All Status",
+                  initialValue: "All Status",
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),

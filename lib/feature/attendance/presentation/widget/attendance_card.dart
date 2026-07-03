@@ -6,7 +6,7 @@ class AttendanceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsetsGeometry.all(24),
+      padding: const EdgeInsetsGeometry.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -57,7 +57,7 @@ class AttendanceCard extends StatelessWidget {
                     Text(
                       "21 june 2026",
                       style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 26,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -67,7 +67,7 @@ class AttendanceCard extends StatelessWidget {
                     Text(
                       "Saturday",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 14,
                         color: Colors.blue,
                       ),
                     ),
@@ -82,7 +82,7 @@ class AttendanceCard extends StatelessWidget {
             color: Colors.grey.shade300,
           ),
           const SizedBox(
-            width: 30,
+            width: 50,
           ),
           Expanded(
               child: Column(
@@ -97,7 +97,7 @@ class AttendanceCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 12,
+                height: 8,
               ),
               Container(
                 padding: const EdgeInsetsGeometry.symmetric(
@@ -128,7 +128,7 @@ class AttendanceCard extends StatelessWidget {
               ),
               const Text("Checked in at 09:12 AM",
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 14,
                 color: Colors.blueGrey,
               ),)
             ],

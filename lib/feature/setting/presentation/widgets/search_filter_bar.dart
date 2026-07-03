@@ -55,7 +55,7 @@ class SearchFilterBar extends StatelessWidget {
           width: 180,
           height: 45,
           child: DropdownButtonFormField<String>(
-            value: selectedStatus,
+            initialValue: selectedStatus,
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,

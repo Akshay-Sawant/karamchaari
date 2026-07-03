@@ -115,7 +115,7 @@ class _EditHrDialogState extends State<EditHrDialog> {
               const SizedBox(height: 15),
 
               DropdownButtonFormField<String>(
-                value: status,
+                initialValue: status,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                 ),

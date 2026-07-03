@@ -181,7 +181,7 @@ class _EditManagerDialogState extends State<EditManagerDialog> {
 
                 /// Status
                 DropdownButtonFormField<String>(
-                  value: status,
+                  initialValue: status,
                   decoration: const InputDecoration(
                     labelText: "Status",
                     border: OutlineInputBorder(),

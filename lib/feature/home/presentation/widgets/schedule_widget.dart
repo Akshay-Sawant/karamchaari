@@ -24,17 +24,17 @@ class ScheduleWidget extends StatelessWidget {
       child: Column(
         children: [
           /// Header
-          Row(
+          const Row(
             children: [
-              const Icon(
+              Icon(
                 Icons.calendar_today_outlined,
                 color: Colors.blue,
                 size: 22,
               ),
 
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
 
-              const Expanded(
+              Expanded(
                 child: Text(
                   "Today's Schedule",
                   style: TextStyle(
@@ -45,10 +45,17 @@ class ScheduleWidget extends StatelessWidget {
                 ),
               ),
 
-              TextButton(
-                onPressed: () {},
+              /*TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const TodaySchedulePage(),
+                    ),
+                  );
+                },
                 child: const Text("View All"),
-              ),
+              ),*/
             ],
           ),
 

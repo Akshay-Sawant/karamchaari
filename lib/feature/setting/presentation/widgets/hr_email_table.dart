@@ -27,7 +27,7 @@ class HrEmailTable extends StatelessWidget {
           dataRowMaxHeight: 60,
           columnSpacing: 40,
           headingRowColor:
-          MaterialStateProperty.all(const Color(0xffF5F7FB)),
+          WidgetStateProperty.all(const Color(0xffF5F7FB)),
           columns: const [
             DataColumn(
               label: Text(

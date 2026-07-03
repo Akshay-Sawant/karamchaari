@@ -19,6 +19,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     _timer = Timer.periodic(const Duration(milliseconds: 50), (timer) {
+      if (!mounted) return;
+
       setState(() {
         _progress += 0.01;
       });
@@ -29,11 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const Scaffold(
-              body: Center(
-                child: Text("Home Screen"),
-              ),
-            ),
+            builder: (_) => const HomePage(),
           ),
         );
       }
@@ -68,8 +66,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Container(
-                  height: 180,
                   width: 180,
+                  height: 180,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(40),
@@ -83,25 +81,25 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 25),
 
               const Text(
                 "Karamchaari",
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 50,
+                  fontSize: 48,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
 
               const Text(
                 "Employee Reporting System",
                 style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
 
@@ -116,7 +114,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   children: [
                     TextSpan(
                       text: "Work.",
-                      style: TextStyle(color: Colors.blueAccent),
+                      style: TextStyle(color: Colors.blue),
                     ),
                     TextSpan(
                       text: " Track.",
@@ -124,7 +122,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     TextSpan(
                       text: " Update.",
-                      style: TextStyle(color: Colors.blueAccent),
+                      style: TextStyle(color: Colors.blue),
                     ),
                   ],
                 ),
@@ -133,28 +131,28 @@ class _SplashScreenState extends State<SplashScreen> {
               const SizedBox(height: 50),
 
               SizedBox(
-                width: 220,
+                width: 230,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: LinearProgressIndicator(
+                    value: _progress.clamp(0.0, 1.0),
                     minHeight: 8,
-                    value: _progress,
-                    backgroundColor: const Color(0xFFE5E7EB),
-                    valueColor: const AlwaysStoppedAnimation<Color>(
+                    backgroundColor: Color(0xFFE5E7EB),
+                    valueColor: AlwaysStoppedAnimation<Color>(
                       Colors.blue,
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 18),
 
               Text(
                 "Loading... ${(_progress * 100).toInt()}%",
                 style: const TextStyle(
                   fontSize: 15,
-                  fontWeight: FontWeight.w600,
                   color: Colors.black54,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],

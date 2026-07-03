@@ -170,7 +170,7 @@ class _TopCard extends StatelessWidget {
 
           CircleAvatar(
             radius: 25,
-            backgroundColor: color.withOpacity(.15),
+            backgroundColor: color.withValues(alpha: .15),
             child: Icon(icon,color: color),
           ),
 
@@ -227,7 +227,7 @@ class ActivityTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 15),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: statusColor.withOpacity(.15),
+          backgroundColor: statusColor.withValues(alpha: .15),
           child: Icon(icon,color: statusColor),
         ),
         title: Text(title),

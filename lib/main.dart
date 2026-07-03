@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:karamchaari/feature/splash_screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            'Flutter Working',
-            style: TextStyle(fontSize: 30),
-          ),
-        ),
-      ),
+      title: 'Karamchaari',
+      home: SplashScreen(),
     );
   }
 }

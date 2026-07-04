@@ -25,7 +25,7 @@ class NotificationTile extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: unread
-            ? Colors.blue.withOpacity(.05)
+            ? Colors.blue.withValues(alpha: .05)
             : Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
@@ -37,7 +37,7 @@ class NotificationTile extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 25,
-            backgroundColor: iconColor.withOpacity(.15),
+            backgroundColor: iconColor.withValues(alpha: .15),
             child: Icon(
               icon,
               color: iconColor,

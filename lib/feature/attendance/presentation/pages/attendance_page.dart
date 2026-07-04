@@ -23,62 +23,57 @@ class AttendancePage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: SafeArea(
+        child: const SafeArea(
           child: Row(
             children: [
-              const SidebarWidget(
+              SidebarWidget(
                 selectedMenu: "Attendance",
               ),
 
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const HeaderWidget(
+                      HeaderWidget(
                         title: "Attendance",
                         subtitle:
                         "Mark your daily attendance and working hours",
                       ),
 
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
 
-                      const AttendanceCard(),
+                      AttendanceCard(),
 
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
 
                       Expanded(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Expanded(
+                            Expanded(
                               flex: 7,
                               child: AttendanceForm(),
                             ),
 
-                            const SizedBox(width: 20),
+                            SizedBox(width: 20),
 
                             Expanded(
                               flex: 3,
                               child: Column(
                                 children: [
-                                  const Expanded(
+                                  Expanded(
                                     flex: 6,
                                     child: AttendanceHistoryCard(),
                                   ),
 
-                                  const SizedBox(height: 20),
+                                  SizedBox(height: 20),
 
                                   Expanded(
                                     flex: 4,
-                                    child: Container(
-                                      color: Colors.white,
-                                      child: const Center(
-                                        child: Text("Monthly Summary"),
-                                      ),
+                                    child: MonthlySummaryCard()
                                     ),
-                                  ),
                                 ],
                               ),
                             ),

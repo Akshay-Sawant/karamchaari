@@ -17,7 +17,7 @@ class ActiveProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsGeometry.only(bottom: 25),
+      padding: const EdgeInsets.only(bottom: 25),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -70,7 +70,7 @@ class ActiveProjectCard extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ClipRRect(
-                        borderRadius: BorderRadiusGeometry.circular(20),
+                        borderRadius: BorderRadius.circular(20),
                         child: LinearProgressIndicator(
                           value: progress,
                           minHeight: 6,

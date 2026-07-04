@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:karamchaari/feature/home/presentation/widgets/search_bar_widget.dart';
+import 'package:karamchaari/feature/notification/presentation/pages/notification_page.dart';
 
 class HeaderWidget extends StatelessWidget {
   final String title;
@@ -78,6 +79,7 @@ class HeaderWidget extends StatelessWidget {
           const SizedBox(width: 20),
 
           /// Notification
+          /// Notification
           Container(
             height: 45,
             width: 45,
@@ -86,8 +88,18 @@ class HeaderWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.notifications_none),
+              icon: const Icon(
+                Icons.notifications_none,
+                color: Colors.black87,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationPage(),
+                  ),
+                );
+              },
             ),
           ),
 

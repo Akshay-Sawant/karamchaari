@@ -62,62 +62,64 @@ class ScheduleWidget extends StatelessWidget {
           const SizedBox(height: 20),
 
           /// Schedule List
-           ListView(
-              children: [
-                const ScheduleItemWidget(
-                  time: "09:12 AM",
-                  title: "Checked In",
-                  subtitle: "Attendance marked",
-                  status: "Done",
-                  statusColor: Colors.green,
-                  dotColor: Colors.green,
-                ),
+           Expanded(
+             child: ListView(
+                children: [
+                  const ScheduleItemWidget(
+                    time: "09:12 AM",
+                    title: "Checked In",
+                    subtitle: "Attendance marked",
+                    status: "Done",
+                    statusColor: Colors.green,
+                    dotColor: Colors.green,
+                  ),
 
-                Divider(color: Colors.grey.shade200),
+                  Divider(color: Colors.grey.shade200),
 
-                const ScheduleItemWidget(
-                  time: "10:00 AM",
-                  title: "Project Update",
-                  subtitle: "E-commerce Dashboard",
-                  status: "In Progress",
-                  statusColor: Colors.blue,
-                  dotColor: Colors.blue,
-                ),
+                  const ScheduleItemWidget(
+                    time: "10:00 AM",
+                    title: "Project Update",
+                    subtitle: "E-commerce Dashboard",
+                    status: "In Progress",
+                    statusColor: Colors.blue,
+                    dotColor: Colors.blue,
+                  ),
 
-                Divider(color: Colors.grey.shade200),
+                  Divider(color: Colors.grey.shade200),
 
-                const ScheduleItemWidget(
-                  time: "01:00 PM",
-                  title: "Team Meeting",
-                  subtitle: "Daily Standup",
-                  status: "Upcoming",
-                  statusColor: Colors.deepPurple,
-                  dotColor: Colors.deepPurple,
-                ),
+                  const ScheduleItemWidget(
+                    time: "01:00 PM",
+                    title: "Team Meeting",
+                    subtitle: "Daily Standup",
+                    status: "Upcoming",
+                    statusColor: Colors.deepPurple,
+                    dotColor: Colors.deepPurple,
+                  ),
 
-                Divider(color: Colors.grey.shade200),
+                  Divider(color: Colors.grey.shade200),
 
-                const ScheduleItemWidget(
-                  time: "03:00 PM",
-                  title: "Report Submission",
-                  subtitle: "Daily Work Report",
-                  status: "Pending",
-                  statusColor: Colors.orange,
-                  dotColor: Colors.orange,
-                ),
+                  const ScheduleItemWidget(
+                    time: "03:00 PM",
+                    title: "Report Submission",
+                    subtitle: "Daily Work Report",
+                    status: "Pending",
+                    statusColor: Colors.orange,
+                    dotColor: Colors.orange,
+                  ),
 
-                Divider(color: Colors.grey.shade200),
+                  Divider(color: Colors.grey.shade200),
 
-                const ScheduleItemWidget(
-                  time: "06:00 PM",
-                  title: "Checked Out",
-                  subtitle: "Yet to Check Out",
-                  status: "Pending",
-                  statusColor: Colors.grey,
-                  dotColor: Colors.grey,
-                ),
-              ],
-            ),
+                  const ScheduleItemWidget(
+                    time: "06:00 PM",
+                    title: "Checked Out",
+                    subtitle: "Yet to Check Out",
+                    status: "Pending",
+                    statusColor: Colors.grey,
+                    dotColor: Colors.grey,
+                  ),
+                ],
+              ),
+           ),
 
         ],
       ),

@@ -29,17 +29,19 @@ class HomePage extends StatelessWidget {
               selectedMenu: "Dashboard",
             ),
 
-
             Expanded(
               child: SingleChildScrollView(
                 padding: EdgeInsets.all(20),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     HeaderWidget(
                       title: "Good Morning, Akshay!",
-                      subtitle: "Here what's happening with your work today",
+                      subtitle: "Here's what's happening with your work today",
                     ),
+
                     SizedBox(height: 20),
+
                     Row(
                       children: [
                         Expanded(
@@ -85,7 +87,7 @@ class HomePage extends StatelessWidget {
                             valueColor: Colors.black,
                           ),
                         ),
-                        SizedBox(width: 10),
+                        SizedBox(width: 15),
                         Expanded(
                           child: DashboardSummaryCard(
                             icon: Icons.lock_clock,
@@ -98,19 +100,22 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
+
                     SizedBox(height: 20),
+
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height: 360,
-                          child: ScheduleWidget(),
+                        Expanded(
+                          child: SizedBox(
+                            height: 360,
+                            child: ScheduleWidget(),
+                          ),
                         ),
 
                         SizedBox(width: 20),
 
                         Expanded(
-
                           child: SizedBox(
                             height: 360,
                             child: ActiveProjectsWidget(),
@@ -126,7 +131,6 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                       ],
-
                     ),
 
                     SizedBox(height: 20),
@@ -135,19 +139,16 @@ class HomePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-
-                            child: KeepReportsWidget(),
+                          child: KeepReportsWidget(),
                         ),
 
                         SizedBox(width: 20),
 
                         Expanded(
-
                           child: QuickActionsWidget(),
-                        )
-
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

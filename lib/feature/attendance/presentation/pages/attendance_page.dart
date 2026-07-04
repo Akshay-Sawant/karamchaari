@@ -70,10 +70,15 @@ class AttendancePage extends StatelessWidget {
 
                                   SizedBox(height: 20),
 
-                                  Expanded(
+                                  /*Expanded(
                                     flex: 4,
-                                    child: MonthlySummaryCard(),
-                                  ),
+                                    child: Container(
+                                      color: Colors.white,
+                                      child: const Center(
+                                        child: Text("Monthly Summary"),
+                                      ),
+                                    ),
+                                  ),*/
                                 ],
                               ),
                             ),
